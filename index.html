@@ -1,0 +1,18 @@
+<div id="scraped_data"></div>
+
+
+<script>
+let url = 'REPLACE WITH YOUR URL';
+  
+ $.ajax({
+    url: url,  //Pass URL here 
+    type: "GET", //Also use GET method
+    success: function(data) {
+        let awards = $(data).find('.awards_list'); //ENTER CLASS OF THE WRAPPER CONTAINER WHICH YOU WANT TO SCRAPE THE DATA.
+      
+        $(awards).each(function(){
+            $("#scraped_data").append('<div class="row">'+$(this).html()+'</div>');
+        });
+    }
+});
+</script>
